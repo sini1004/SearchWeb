@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>인물검색2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" th:href="@{/styles/style.css}" />
+<link rel="stylesheet" th:href="@{/styles/person.css}" />
+<link rel="stylesheet" th:href="@{/styles/reset.css}" />
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" aria-current="page" href="duplicatedSearch">중복1</a></li>
+					<li class="nav-item"><a class="nav-link" aria-current="page" href="duplicatedSearch2">중복2</a></li>
+					<li class="nav-item"><a class="nav-link" href="search">인물검색1</a></li>
+					<li class="nav-item"><a class="nav-link active" href="search2">인물검색2</a></li>
+				</ul>
+				<!-- 검색창 -->
+				<div class="inner-form">
+					<form name="memForm" id="memForm" method="POST">
+						<input type="hidden" id="author" name="S_RIGHTPRES_NM"/>
+					</form>
+					<input type="text" name="word" id="word" placeholder="검색할 이름을 입력해주세요."/>
+					<button type="button" value="검색" onclick="getCheckboxValue()" id="searchBtn">
+						<i class="fa fa-search"></i>
+					</button>
+				</div>
+
+				<div class="checkbox-content drag-prevent">
+					<div class="separator-box">
+						<span>[검색]</span>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="daum"/>Daum
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="google"/>Google
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name='site' value='naver'/>Naver
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="dbpedia"/>DBpedia
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="lod"/>국가서지LOD
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="viaf"/>VIAF
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="lc"/>LC
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="kri"/>KRI
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="uci"/>UCI
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="riss"/>RISS
+						</label>
+					</div>
+					<div class="separator-box">
+						<span>[영화]</span>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="kobis"/>KOBIS
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="movieactor"/>한국영화배우협회
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="cine21"/>씨네21
+						</label>
+					</div>
+					<div class="separator-box">
+						<span>[음원]</span>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="fkmp"/>한국음악실연자연합회
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="komca"/>KOMCA
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="vibe"/>VIBE
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="genie"/>genie
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="melon"/>Melon
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="maniadb"/>ManiaDB
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="musicbrainz"/>MusicBrainz
+						</label>
+						<label>
+							<input class="checkSite" type="checkbox" name="site" value="kmdc"/>한국음악데이터센터
+						</label>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="wrapper">
+		<div class="tab-content" id="myTabContent">
+			<div class="tab-pane fade show active" id="search-tab-pane" role="tabpanel" aria-labelledby="search-tab"></div>
+		</div>
+		<!--tab-content-->
+	</div>	
+	<!--wrapper-->
+
+
+	<script th:src="@{/js/index.js}"></script>
+	<script th:src="@{/js/search2.js}"></script>
+
+	<script>
+      const input = document.getElementById("word");
+      const button = document.getElementById("searchBtn");
+      input.addEventListener("keyup", function (e) {
+        if (e.keyCode === 13) {
+          e.preventDefault();
+          getCheckboxValue();
+        }
+      });
+
+	  // div new window로 빼기 테스트
+	  // function test() {
+		//   const win = window.open();
+		//   const html = $("#dbTable").html();
+		//   $(win.document.body).html(html);
+	  // }
+    </script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>

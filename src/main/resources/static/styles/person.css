@@ -1,0 +1,101 @@
+
+/* LOD */
+
+#lodTbody tr {
+	border: var(--table-border-color);
+}
+#lodTbody tr td span,
+#lodTbody tr td a {
+	display: inline-block;
+    margin: 0.2rem
+}
+
+
+/* LOD VIAF DBpedia LC 공통*/
+#lcTable,
+#lodTable,
+#viafTable,
+#dbTable { 
+	width:100%;
+	margin: 20px;
+}
+
+#lodThead tr th,
+#viafTable tr th,
+#dbTable tr th {
+	padding: 0.8rem 0.5rem;
+	background-color: var(--table-bg-color);
+	border-right: 1px solid var(--table-border-color);
+	font-weight:bold;
+}
+#lodThead tr th:last-child,
+#viafTable tr th:last-child,
+#dbTable tr th:last-child {
+	border-right: none;
+}
+
+#lodTbody tr td,
+#viafTable tr td,
+#dbTable tr td {
+	padding: 0.5rem 0.3rem;
+	border-bottom: 1px solid var(--table-border-color);
+	border-right: 1px solid var(--table-border-color);
+}
+#lodTbody tr td:last-child,
+#viafTable tr td:last-child,
+#dbTable tr td:last-child {
+	border-right: none;
+}
+
+#lodTbody tr:nth-child(even),
+#viafTable tr:nth-child(even),
+#dbTable tr:nth-child(even) {
+	background-color: var(--table-bg-color);
+} 
+
+/* LCSH */
+#lcTable thead tr th {
+	padding: 0.8rem 0.5rem;
+	background-color: var(--table-bg-color);
+	border-right: 1px solid var(--table-border-color);
+	font-weight:bold;
+}
+#lcTable thead tr th:last-child {
+	border-right: none;
+}
+.tbody-group .td-num {
+	display:none;
+}
+.tbody-group tr td {
+	padding: 0.5rem 0.3rem;
+	border-bottom: 1px solid var(--table-border-color);
+	border-right: 1px solid var(--table-border-color);
+}
+.tbody-group tr td:last-child {
+	border-right: none;
+}
+.tbody-group:nth-child(even) {
+	background-color: var(--table-bg-color);
+} 
+.draw-line {
+	display:none;
+}
+.nodata {	
+    display: block;
+    width: 100%;
+    position: relative;
+    padding: 10px;
+}
+.nodata tr {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    left: calc(100% + 200px);
+}
+/* .tbody-group tr:not(.draw-line) {
+	background-color: var(--table-bg-color);
+} 
+ */
+

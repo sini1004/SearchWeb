@@ -1,0 +1,27 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+</head>
+ <table id="selectTable" class="table table-striped selectTable">
+     <tr>
+        <th>No</th>
+        <th>기관번호</th>
+        <th>중복저자목록</th>
+    </tr>
+    <tr th:each="entry : ${agencyData}" class="tablelist">
+        <td th:text="${entryStat.count}"></td>
+        <td th:text="${entry.key}"></td>
+        <td>
+            <table class="athorTable">            
+                <tr th:each="list : ${entry.value}">
+                    <!-- <td th:text="${list.key}"></td> -->
+                    <td>
+					    <a th:href="@{https://lod.nl.go.kr/page/{id} (id=${list.key})}" th:text="${list.key}" target="_blank"></a>
+					</td>					                    
+                    <td th:text="${list.value}"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+

@@ -1,0 +1,87 @@
+.setting button:not(:last-child) {
+    margin-right: 10px;
+}
+
+.modal-body h3 {
+    width: fit-content;
+}
+
+/* table */
+.table-container {
+    margin: 50px auto 100px;
+    width: 80%;
+}
+
+.table-container .testTable {
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.table-container .testTable tr td {
+    border-right: 1px solid var(--table-border-color);
+    border-bottom: 1px solid var(--table-border-color);
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.table-container .testTable tr td:last-child {
+    border-right: none;
+}
+
+.table-container .testTable dl dt {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.table-container .testTable dl dd {
+    margin-top: 5px;
+}
+
+/* select */
+.select-container {
+	width: 80%;
+	margin: 50px auto;
+}
+.select {
+	width: 90%;
+}
+.button-container {
+	gap: 5px;
+}
+.selectTable {
+	
+}
+.table-container .selectTable tr td {
+    border-right: 1px solid var(--table-border-color);
+    border-bottom: 1px solid var(--table-border-color);
+}
+.table-container .selectTable tr td:last-child {
+    border-right: none;
+}
+.table-container .selectTable tr td span{
+	display: block;
+	margin-bottom: 5px; 
+}
+.table-container .selectTable tr td span:last-child {
+	margin-bottom: 0; 
+}
+
+.athorTable {
+	
+}
+.athorTable tr td {
+	border: 0 !important;
+	padding-top: 6px !important;
+    padding-bottom: 6px !important;
+}
+.athorTable tr td:first-child {
+	display: inline-block;
+	margin-right:10px;
+}
+
+/* loading */
+#loading {
+	justify-content: center;
+	padding: 100px 0;
+}
+

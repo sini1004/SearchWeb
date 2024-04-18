@@ -1,0 +1,206 @@
+/* 드래그 방지 */
+.drag-prevent{
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* 상단 좌측 탭 */
+.tab-menu{position:relative;}
+.tab-menu .list{overflow:hidden;}
+.tab-menu .list {display: flex; flex-direction: row;}
+.tab-menu .list .btn{font-size:13px; margin-right:14px;}
+.tab-menu .list .cont{display:none; position:absolute; background:#555; color:#fff; text-align:center; width:250px; height:100px; line-height:100px;}
+.tab-menu .list li.is-on .btn{font-weight:bold; color:green;}
+.tab-menu .list li.is-on .cont{display:block;}
+
+
+/* 검색바 */
+.navbar {
+    padding: 15px 0;
+}
+
+#navbarNav {
+	position:relative;
+}
+@media screen and (min-width: 1024px){
+	#navbarNav {
+		display:block;
+	}
+}
+
+/* 검색입력 */
+.inner-form {
+  display: flex;
+  width: 22%;
+  height: 35px;
+  margin-left:20px;
+}
+#word,
+#word2 {
+  border-radius: 25px;
+  border:none;
+  background-color: var(--color-white);
+  padding:0 0.8rem;
+  width: 80%;
+  margin-right: 10px;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.1);
+}
+#word:focus,
+#word2:focus {
+  outline: none !important;
+  border-color: var(--point-color);
+  box-shadow: 0 0 8px var(--point-color);
+}
+
+/* 검색버튼 */
+.inner-form button {
+  width: 60px;
+}
+#searchBtn,
+#searchBtn2 {
+  background-color: var(--point-color);
+  color: var(--color-white);
+  border-radius: 25px;
+}
+
+
+/* 체크박스 */
+.setting {
+  display: flex;
+  position: absolute;
+  right: 5px;
+}
+.checkbox-content{
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  right: 5px;
+  width: 850px;
+  font-size: 14px;
+}
+@media screen and (max-width: 1620px) {
+	.checkbox-content {
+		/*display: block;*/
+  		/*position: relative;*/
+		/*width: 800px;*/
+	}
+}
+@media screen and (max-width: 1380px) {
+	.inner-form {
+		width: 40%;
+    	margin-left: 0;
+    	margin: 10px 0;
+	}
+	.checkbox-content {
+		display: block;
+  		position: relative;
+  		/*margin:15px 0;*/
+  		/*width: 100%;*/
+	}
+}
+.checkbox-content span {
+    margin: 0 -5px 5px 0;
+    font-weight: bold;
+}
+.checkbox-content input {
+  margin:0 2px 5px 15px;
+}
+/*  */
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  height: 80vh;
+  margin: 0;
+  padding: 0;
+}
+.grid-item {
+  border: 1px solid rgb(218, 218, 218);
+  width: 100%;
+  height: 46.5vh;
+}
+/* 각 영역 ID 설정 */
+#item0, #item1, #item2, #item3, #item4, #item5, #item6, #item7, #item8, #item9, #item10,
+#item11, #item12, #item13, #item14, #item15, #item16, #item17, #item18, #item19, #item20 {
+  display: none;
+  /* resize 요소크기 조정 */
+  resize: both;
+  overflow: auto;
+}
+
+.grid-containe  div {
+  border:3px solid red;
+}
+
+#item0, #item1, #item2, #item3, #item4, #item5, #item6, #item7, #item8, #item9, #item10,
+#item11, #item12, #item13, #item14, #item15, #item16, #item17, #item18, #item19, #item20 {
+  width: 50%;
+}
+
+/* iframe */
+iframe {
+  width: 100%;
+  height: calc(100% - 46px); /* 최소최대버튼 height만큼 빼기 */
+  border: none;
+}
+#item4 table, #item4 td, #item4 th {
+  /* border: 1px solid black; */
+  border-collapse: collapse;
+}
+
+
+/* 최대화 최소화 */
+.input-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  padding: 20px;
+  height: 100px;
+}
+.controlBtn, .newBtn{
+  border: 1px solid #dcdcdc;
+  width: 50px;
+  height: 25px;
+  background-color: dodgerblue;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 5px;
+}
+.controlBtn:hover, .newBtn:hover{
+  opacity: 0.7;
+}
+.control-size {
+	display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #f8f8f8;
+    align-items: center;
+    padding: 10px;
+    font-weight: bold;
+}
+.newBtn {
+	width:35px;
+}
+
+/* 상단 탭 */
+.navbar-nav .active {
+	background-color: var(--point-color);
+	color: var(--color-white) !important;
+	border-radius:10px;
+	font-weight:bold;
+}
+
+/* color */
+:root {
+  --table-bg-color: #f2f2f2;
+  --table-border-color: #dee2e6;
+  --table-font-color: #212529;
+  --color-white: #fff;
+  --point-color:#2699fb;
+}
